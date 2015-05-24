@@ -1,5 +1,5 @@
  h1 {
-	font-family: Arial;
+	font-size:22px;
 	}
    
  h2 {
@@ -7,6 +7,12 @@
   color:  #626262;
   
 }
+
+p{
+  font-size: 13px;
+
+}
+
  #main{
 	width:600px;
 	height:100%;
