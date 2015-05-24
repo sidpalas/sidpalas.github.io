@@ -4,43 +4,99 @@
 		<title>sidpalas.com</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel=stylesheet type="text/css" href="css/main_stylesheet.css">
-		<link href="http://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet" type="text/css">
-		</head>
-		<body>
-			<div id="main">
-				<div class="web_links">
-					<div class = "container">
-						<a class = "icon_link" href="mailto:sid@sidpalas.com" target="_blank">
-							<img class = "icon" src = "images/email_icon.png" width=25px/>
-						</a>
-						<a class = "icon_link" href="https://www.facebook.com/sidpalas" target="_blank">
-							<img class = "icon" src = "images/facebook_icon.png" width=25px/>
-						</a>
-						<a class = "icon_link" href="https://www.linkedin.com/pub/sid-palas/29/b23/971" target="_blank">
-							<img class = "icon" src = "images/linkedin_icon.png" width=25px/>
-						</a>
-						<a class = "icon_link" href="https://twitter.com/sidpalas" target="_blank">
-							<img class = "icon" src = "images/twitter_icon.png" width=25px/>
-						</a>
-						<a class = "icon_link" href="https://github.com/sidpalas" target="_blank">
-							<img class = "icon" src = "images/github_icon.png" width=25px/>
-						</a>
-					</div>
-				</div>
-				<div class="header_pictures">
-					<div class="container">
-						<img class = "header_image" src = "images/face.png" width=32%/>
-						<img class = "header_image" src = "images/vault.png" width=32%/>
-						<img class = "header_image" src = "images/purple.png" width=32%/>
-					</div>
-				</div>
-				<h1>Hello.</h1>
+			<link href="http://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet" type="text/css">
+			
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+				</script>
+				<script>			
+					$(document).ready(function(){
+						animateDiv();
+						
+					});
 
-				<p>Welcome my personal website.</p>
-				<p>  There is not really much to see here, but feel free to use the links at the top to find me at other locations on the internet.</p>
+					function makeNewPosition(){
+						
+						// Get viewport dimensions (remove the dimension of the div)
+						var h = $(window).height() - 20;
+						var w = $(window).width() - 20;
+						
+						var nh = Math.floor(Math.random() * h);
+						var nw = Math.floor(Math.random() * w);
+						
+						return [nh,nw];    
+						
+					}
 
-				<p style="padding-left:15px;padding-bottom=0px">Cheers!</p>
-				<h2 style="padding-left:35px;">Sid Palas</h2>
-			</div>
-		</body>
-	</html>
+					function animateDiv(){
+						var newq = makeNewPosition();
+						var oldq = $('#blah').offset();
+						var speed = calcSpeed([oldq.top, oldq.left], newq);
+						
+						$('#blah').animate({ top: newq[0], left: newq[1] }, speed, function(){
+						  animateDiv();        
+						});
+						
+					};
+
+					function calcSpeed(prev, next) {
+						
+						var x = Math.abs(prev[1] - next[1]);
+						var y = Math.abs(prev[0] - next[0]);
+						
+						var greatest = x > y ? x : y;
+						
+						var speedModifier = 0.1;
+
+						var speed = Math.ceil(greatest/speedModifier);
+
+						return speed;
+
+					}
+				</script>
+							</head>
+							<body>
+								<div id="main">
+									<div class="web_links">
+										<div class = "container">
+											<a class = "icon_link" href="mailto:sid@sidpalas.com" target="_blank">
+												<img class = "icon" src = "images/email_icon.png" width=25px/>
+											</a>
+											<a class = "icon_link" href="https://www.facebook.com/sidpalas" target="_blank">
+												<img class = "icon" src = "images/facebook_icon.png" width=25px/>
+											</a>
+											<a class = "icon_link" href="https://www.linkedin.com/pub/sid-palas/29/b23/971" target="_blank">
+												<img class = "icon" src = "images/linkedin_icon.png" width=25px/>
+											</a>
+											<a class = "icon_link" href="https://twitter.com/sidpalas" target="_blank">
+												<img class = "icon" src = "images/twitter_icon.png" width=25px/>
+											</a>
+											<a class = "icon_link" href="https://github.com/sidpalas" target="_blank">
+												<img class = "icon" src = "images/github_icon.png" width=25px/>
+											</a>
+										</div>
+									</div>
+									<div class="header_pictures">
+										<div class="container">
+											<img class = "header_image" src = "images/face.png" width=32%/>
+											<img class = "header_image" src = "images/vault.png" width=32%/>
+											<img class = "header_image" src = "images/purple.png" width=32%/>
+										</div>
+									</div>
+									<h1>Hello.</h1>
+
+									<p>Welcome my personal website.</p>
+									<p>  There is not really much to see here*, but feel free to use the links at the top to find me at other locations on the internet.</p>
+
+									<p>Cheers!</p>
+									<h2 style="padding-left:25px;">Sid Palas</h2>
+
+									<p style="font-size:12px;">*There is one [nearly] invisible link floating around the page with an easter egg if you find and click it.</p>
+
+									<a href="images/sid_headshot.gif" target="_blank">
+										<div id="blah">
+										</div>
+									</a>
+								</div>
+
+							</body>
+						</html>
