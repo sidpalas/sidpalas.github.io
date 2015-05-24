@@ -12,6 +12,10 @@
 					$(document).ready(function(){
 						animateDiv();
 						
+						    $("#blah").click(function(){
+								$("#hidden").toggle("slow");
+							});
+						
 					});
 
 					function makeNewPosition(){
@@ -92,10 +96,14 @@
 
 									<p style="font-size:12px;">*There is one [nearly] invisible link floating around the page with an easter egg if you find and click it.</p>
 
-									<a href="images/sid_headshot.gif" target="_blank">
-										<div id="blah">
-										</div>
-									</a>
+									<div id="hidden" style="width:150px; margin-left:auto; margin-right:auto; margin-top:20px; display: none;">
+										<img src = "images/sid_headshot.gif" width=150px;/>
+										<p style="font-size:11px;font-style: italic;">Serious... yet approachable.</p>
+									</div>
+									
+									<div id="blah">
+									</div>
+
 								</div>
 
 							</body>
