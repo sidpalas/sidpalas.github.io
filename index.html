@@ -13,8 +13,12 @@
 						animateDiv();
 						
 						    $("#blah").click(function(){
-								$("#hidden").toggle("slow");
+								$("#hidden").show("slow");
 							});
+							$("#headshot_gif").click(function(){
+								$("#hidden").hide("slow");
+							});
+							
 						
 					});
 
@@ -97,7 +101,7 @@
 									<p style="font-size:12px;">*There is one [nearly] invisible link floating around the page with an easter egg if you find and click it.</p>
 
 									<div id="hidden" style="width:150px; margin-left:auto; margin-right:auto; margin-top:20px; display: none;">
-										<img src = "images/sid_headshot.gif" width=150px;/>
+										<img id="headshot_gif" src = "images/sid_headshot.gif" width=150px;/>
 										<p style="font-size:11px;font-style: italic;">Serious... yet approachable.</p>
 									</div>
 									
