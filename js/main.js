@@ -27,32 +27,19 @@
     this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);
 	let backgroundvideoFrame = this.ctx2.getImageData(0, 0, this.width, this.height);
 	let videoFrame = this.ctx1.getImageData(0, 0, this.width, this.height);
-		let l = videoFrame.data.length / 4;
-	//let videoFrame2 = this.ctx1.getImageData(0, 0, this.width, this.height);
+	let l = videoFrame.data.length / 4;
+	let width = this.width;
+	let height = this.height;
 	let videoFrame3 = this.ctx1.getImageData(0, 0, this.width, this.height);
-
 	
-    // for (let i = 0; i < l; i++) {
-      // let r = videoFrame.data[i * 4 + 0];
-      // let g = videoFrame.data[i * 4 + 1];
-      // let b = videoFrame.data[i * 4 + 2];
-    // if (g > 90 && r > 90 && b < 50)
-        // videoFrame.data[i * 4 + 3] = 0;
-    // }
-	
-	// for (let i = 0; i < l; i++) {
-      // let rdiff = videoFrame2.data[i * 4 + 0]- backgroundvideoFrame.data[i * 4 + 0];
-      // let gdiff = videoFrame2.data[i * 4 + 1]- backgroundvideoFrame.data[i * 4 + 1];
-      // let bdiff = videoFrame2.data[i * 4 + 2]- backgroundvideoFrame.data[i * 4 + 2];
-    // if (Math.abs(rdiff) < 30 && Math.abs(gdiff) <30 && Math.abs(bdiff) < 30)
-        // videoFrame2.data[i * 4 + 3] = 0;
-    // }
-	
-	for (let i = 0; i < l; i++) {  
-		if ( i % 640*4 < 900 || i % 640*4 > 1600 || i < 640*4*20 || i > 640*4*100){
-			videoFrame3.data[i * 4 + 3] = 0;
-		} else if (i % 640*4 < 1100 || i % 640*4 > 1390 || i < 640*4*30 || i > 640*4*60) {
-			videoFrame3.data[i * 4 + 3] = 120;
+	for (let i = 0; i < width; i++) {  
+		for (let j = 0; j < height; j++ ){
+			k = 640*j + i; 
+			if ( i  < 200 || i > 400  || j < 90 || j > 400){
+				videoFrame3.data[k * 4 + 3] = 0; // background
+			} else if (i < 250 || i > 350 || j < 130 || j > 300) {
+				videoFrame3.data[k * 4 + 3] = 120; //semi-transparent
+			}
 		}
     }
 		
