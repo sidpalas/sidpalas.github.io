@@ -6,9 +6,12 @@
     <script type="text/javascript" src = "./js/main.js">	</script>	
   </head>
 
-  <body onload="processor.doLoad()">
+  <body onload="processor.doLoad();processor.computevideoFrame()">
     <div>
-			<video id="video" width="640" height="480" autoplay="true"></video>
+			<canvas id="c1" width="640" height="480" style="border:1px solid #000000;">
+				<video id="video" width="640" height="480" autoplay="true"></video>
+			</canvas>
+	
     </div>
 		<!-- A button for taking snapshot of background -->
 	<form>
@@ -29,10 +32,6 @@
 		} 
 		
 	</script>
-	
-    <div>
-      <canvas id="c1" width="640" height="480" style="border:1px solid #000000; background: url('./images/loader.jpg')"></canvas>
-	</div>
 	<div>
       <canvas id="c2" width="640" height="480" style="border: 1px solid #000000"></canvas>
 	</div>
