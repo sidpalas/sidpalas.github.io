@@ -12,6 +12,16 @@
 			margin-right: auto;
 		}
 		
+		.note{
+			style:float;
+			margin-bottom: 0%;
+		}	
+		
+		.note2{
+			style:float;
+			margin-top: 0%;
+		}
+	
 		text {
 			text-anchor: middle;
 			fill: #8A0707;
@@ -20,16 +30,16 @@
 			opacity: 0.9;
 		}
 
-		path{
+		path{ 
 			stroke: #8A0707;
 			stroke-width: 1;
 			fill: none;
-			opacity: 0.4;
+			opacity: 0.3;
 		}
 
 		circle {
 			fill: #8A0707;
-			opacity: 0.9;
+			opacity: 0.4;
 		}
 	</style>
 
@@ -39,14 +49,22 @@
 	</head>
 
 	<body>
+		<div class="note">
+		   <img src="images/txt.png" align="left">
+		</div>		
+		<div class="note2">
+		   <img src="images/txt2.png" align="right">
+		</div>
 		<div id="chart"></div>
 
+		
+		
 		<script type="text/javascript">
 			window.onerror = function() {
 				location.reload();
 			}
 			
-			var margin = {top: 10, right: 10, bottom: 10, left: 10},
+			var margin = {top: 0, right: 0, bottom: 0, left: -0},
 				docHeight = $(document).height() - margin.left - margin.right,
 				docWidth  = $(document).width() - margin.top - margin.bottom;
 			
